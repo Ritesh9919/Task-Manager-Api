@@ -7,6 +7,8 @@ import connectDB from './db/mongoose.js';
 import { errorHandlerMiddleware } from './middlewares/error_handler.js';
 import { notFoundMiddleware } from './middlewares/not_found.js';
 
+import taskRouter from './routes/task.route.js';
+
 
 const app = express();
 
@@ -21,6 +23,8 @@ app.get('/', (req, res)=> {
 })
 
 
+
+app.use('/api/tasks', taskRouter);
 
 
 app.use(notFoundMiddleware);
