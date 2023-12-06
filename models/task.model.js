@@ -8,8 +8,8 @@ const taskSchema = new mongoose.Schema({
         required:true
     },
     completed:{
-        type:Boolean,
-        default:false
+        type:Boolean
+        
     }
 }, {timestamps:true});
 
