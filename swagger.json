@@ -5,7 +5,7 @@
     "description": "API for task-manager",
     "title": "Task-manager API"
   },
-  "host": "localhost:8000",
+  "host": "task-manager-r9ys.onrender.com/",
 
   "paths": {
     "/api/tasks/create": {
