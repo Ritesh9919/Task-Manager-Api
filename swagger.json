@@ -1,3 +1,170 @@
 {
-    "swagger":"2.0"
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "description": "API for task-manager",
+    "title": "Task-manager API"
+  },
+  "host": "localhost:8000",
+
+  "paths": {
+    "/api/tasks/create": {
+      "post": {
+        "tags": ["Create Task"],
+        "summery": "Task",
+        "description": "Task create",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create Task",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CREATED"
+          },
+
+          "500": {
+            "description": "Something went wrong!"
+          }
+        }
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "tags": ["Get all tasks"],
+        "summery": "Tasks",
+        "description": "Get all tasks",
+
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Task not found"
+          },
+          "500": {
+            "description": "Something went wrong!"
+          }
+        }
+      }
+    },
+    "/api/tasks/{taskId}": {
+      "get": {
+        "tags": ["Get task"],
+        "summery": "Get task by id",
+        "description": "Get task by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "description": "Task Id",
+            "type": "string",
+            "decription": "The task id"
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+
+          "404": {
+            "description": "Task not found"
+          },
+          "500": {
+            "description": "Something went wrong!"
+          }
+        }
+      }
+    },
+    "/api/tasks/{taskId}/delete": {
+      "delete": {
+        "tags": ["Delete task"],
+        "summery": "Delete task by id",
+        "description": "Delete task by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "taskId",
+            "description": "Task Id",
+            "type": "string",
+            "decription": "The task id"
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+
+          "404": {
+            "description": "Task not found"
+          },
+          "500": {
+            "description": "Something went wrong!"
+          }
+        }
+      }
+    },
+    "/api/tasks/{taskId}/update": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "taskId",
+          "description": "Task Id",
+          "type": "string",
+          "decription": "The task id"
+        }
+      ],
+
+      "put": {
+        "tags": ["Update Task"],
+        "summery": "Update task by id",
+        "description": "Update Singal task",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+
+          "404": {
+            "description": "Task not found"
+          },
+          "500": {
+            "description": "Something went wrong!"
+          }
+        }
+      }
+    }
+  }
 }
